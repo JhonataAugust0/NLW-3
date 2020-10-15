@@ -1,0 +1,25 @@
+{
+  "name": "NLW-3",
+  "version": "1.0.0",
+  "description": "Bootcamp NLW  da Rocketseat - Desenvolvimento de uma aplicação web onde serão cadastrados orfanatos para que possam receber visitas e terem mais visibilidade em sua cidade.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonataAugust0/NLW-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JhonataAugust0/NLW-3/issues"
+  },
+  "homepage": "https://github.com/JhonataAugust0/NLW-3#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "nodemon": "^2.0.5"
+  }
+}
