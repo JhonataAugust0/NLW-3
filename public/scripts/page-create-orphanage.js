@@ -74,3 +74,13 @@ function toggleSelect(event){
     const input = document.querySelector('[name="open_on_weekends"]')
     input.value = button.dataset.value    
 }
+
+// function validate(event) {
+//     // Validar se lat e lng foram preenchidos
+//     const = needsLatAndLng = true 
+//     if (needsLatAndLng){
+//         event.prevenDefault()
+//         alert ('Selecione um ponto no mapa')
+// onsubmit="validate(event)" HTML
+//     }
+// }

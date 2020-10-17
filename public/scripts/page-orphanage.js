@@ -1,51 +1,54 @@
 const options = {
     dragging: false,
-    touchZoom: false,
     doubleClickZoom: false,
+    touchZoom: false,
     scrollWheelZoom: false,
     zoomControl: false
 }
+// get values from html
+const spanLat = document.querySelector('span[data-lat]').dataset.lat
+const spanLng = document.querySelector('span[data-lng]').dataset.lng
 
+//Create map
+const map = L.map('mapid', options).setView([spanLat, spanLng], 16)
 
-// create map
-const map = L.map('mapid', options).setView([-9.6519653, -35.7189765], 16)
-
+//Create and add tileLayer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
 
-// create and add tileLayer
-L.tileLayer('https://{s}.tile.openstreemap.org/{z}/{x}/{y}.png').addTo(map)
-
-//create icon
+//Create Icon
 const icon = L.icon({
     iconUrl: '/images/map-marker.svg',
     iconSize: [58, 68],
     iconAnchor: [29, 68],
-    popupAnchor: [170, 2]
+    popupAnchor: [175, 2]
 })
 
 
-// create and add marker
 
-L.marker([-9.6519653, -35.7189765], { icon }).addTo(map)
+//Create marker
+L.marker([spanLat, spanLng], { icon }).addTo(map)
 
-
-/* Image galery */
+//Image Gallery
 
 function selectImage(event) {
     const button = event.currentTarget
 
-    // remover as clases .active
+    // remover todas as classes .active
     const buttons = document.querySelectorAll('.images button')
-    buttons.forEach((button) => { button.classList.remove('active')})
+    buttons.forEach(removeActiveClass)
 
-    // selecionar imagem clicada
+    function removeActiveClass (button) {
+        button.classList.remove('active')
+    }
+
+    // selecionar a img clicada
     const image = button.children[0]
-    const imageContainer = document.querySelector('.orphanage-details > img') 
-   
-    // Atualizar o container da imagem
-    imageContainer.src = image.src
-   
-    // adicionar a .active a este botão
-    button.classList.add('active')
+    const imageContainer = document.querySelector('.orphanage-details > img')
 
+    // atualizar o container da img
+
+    imageContainer.src = image.src
+
+    // adicionar a .active para o botão 
+    button.classList.add('active')
 }
